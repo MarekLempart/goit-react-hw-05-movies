@@ -1,28 +1,33 @@
-import { lazy } from 'react';
-import { Route, Routes } from 'react-router-dom';
-import { SharedLayout } from './SharedLayout';
+// App.jsx
 
-const About = lazy(() => import('../pages/About'));
+import { lazy } from 'react';
+import { Toaster } from 'react-hot-toast';
+import { Navigate, Route, Routes } from 'react-router-dom';
+
+const SharedLayout = lazy(() => import('./SharedLayout/SharedLayout'));
 const Home = lazy(() => import('../pages/Home'));
-const ProductDetails = lazy(() => import('../pages/ProductDetails'));
-const Products = lazy(() => import('../pages/Products'));
-const Mission = lazy(() => import('./Mission'));
-const Team = lazy(() => import('./Team'));
-const Reviews = lazy(() => import('./Reviews'));
+const Movies = lazy(() => import('../pages/Movies'));
+const MovieDetails = lazy(() => import('./MovieDetails/MovieDetails'));
+const Cast = lazy(() => import('./Cast/Cast'));
+const Reviews = lazy(() => import('./Reviews/Reviews'));
 
 export const App = () => {
   return (
-    <Routes>
-      <Route path="/" element={<SharedLayout />}>
-        <Route index element={<Home />} />
-        <Route path="about" element={<About />}>
-          <Route path="mission" element={<Mission />} />
-          <Route path="team" element={<Team />} />
-          <Route path="reviews" element={<Reviews />} />
-        </Route>
-        <Route path="products" element={<Products />} />
-        <Route path="products/:id" element={<ProductDetails />} />
-      </Route>
-    </Routes>
+    <>
+      <div>
+        <Routes>
+          <Route path="/" element={<SharedLayout />}>
+            <Route index element={<Home />} />
+            <Route path="movies" element={<Movies />} />
+            <Route path="movies/:movieId" element={<MovieDetails />}>
+              <Route path="cast" element={<Cast />} />
+              <Route path="reviews" element={<Reviews />} />
+            </Route>
+            <Route path="*" element={<Navigate to="/" />} />
+          </Route>
+        </Routes>
+        <Toaster />
+      </div>
+    </>
   );
 };

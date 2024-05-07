@@ -1,0 +1,55 @@
+/* SharedLayout.module.css */
+
+.header {
+  padding: 20px 30px;
+  text-align: center;
+  box-shadow: 0px 4px 4px #d3d3d3;
+}
+
+.navLink {
+  display: inline-block;
+  font-size: 24px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+  color: #000000;
+}
+
+.navLink:not(:last-child) {
+  margin-right: 40px;
+}
+
+.navLink.active,
+.navLink:hover,
+.navLink:focus {
+  color: #1c85ff;
+  text-decoration: underline;
+}
+
+.loadingDots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.dot {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  border-radius: 50%;
+  background-color: #dc143c;
+  animation: bounce 1s infinite ease-in-out;
+}
+
+@keyframes bounce {
+  0%,
+  80%,
+  100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+  }
+}

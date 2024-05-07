@@ -1,14 +1,44 @@
+// Home.jsx
+
+import MovieList from 'components/MovieList/MovieList';
+import { LoadingIndicator } from 'components/SharedLayout/LoadingDots';
+import { useEffect, useState } from 'react';
+import { fetchTrendMovies } from '../services/Api';
+
 const Home = () => {
+  const [trendingMovies, setTrendingMovies] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    const fetchTrendingMoviesData = async () => {
+      try {
+        setError(false);
+        setIsLoading(true);
+        const { results } = await fetchTrendMovies();
+        setTrendingMovies(results);
+      } catch (error) {
+        setError(true);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchTrendingMoviesData();
+  }, []);
+
   return (
-    <main>
-      <h1>Welcome</h1>
-      <img src="https://via.placeholder.com/960x240" alt="" />
-      <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto,
-        laboriosam placeat incidunt rem illum animi nemo quibusdam quia
-        voluptatum voluptate.
-      </p>
-    </main>
+    <>
+      {isLoading ? (
+        <div className={LoadingIndicator.LoadingIndicator}>Loading...</div>
+      ) : error ? (
+        <p className={LoadingIndicator.errorMsg}>
+          Sorry, failed to fetch trending movies. Please try again later.
+        </p>
+      ) : (
+        <MovieList trendingMovies={trendingMovies} />
+      )}
+    </>
   );
 };
 
