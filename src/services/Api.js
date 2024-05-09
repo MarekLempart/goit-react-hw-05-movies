@@ -24,7 +24,7 @@ export const fetchTrendMovies = async () => {
   options.url = `${baseURL}/3/trending/movie/day`;
   try {
     const response = await axios.request(options);
-    console.log(response.data);
+    // console.log(response.data);
     return response.data;
   } catch (error) {
     console.error(error);
@@ -37,7 +37,7 @@ export const fetchMovieByName = async query => {
   options.params.query = query;
   try {
     const response = await axios.request(options);
-    console.log(response.data);
+    // console.log(response.data);
     return response.data;
   } catch (error) {
     console.error(error);
@@ -49,7 +49,7 @@ export const fetchMovieById = async movieId => {
   options.url = `${baseURL}/3/movie/${movieId}`;
   try {
     const response = await axios.request(options);
-    console.log(response.data);
+    // console.log(response.data);
     return response.data;
   } catch (error) {
     console.error(error);
@@ -61,7 +61,7 @@ export const fetchMovieCast = async movieId => {
   options.url = `${baseURL}/3/movie/${movieId}/credits`;
   try {
     const response = await axios.request(options);
-    console.log(response.data);
+    // console.log(response.data);
     return response.data;
   } catch (error) {
     console.error(error);
@@ -73,7 +73,7 @@ export const fetchMovieReviews = async movieId => {
   options.url = `${baseURL}/3/movie/${movieId}/reviews`;
   try {
     const response = await axios.request(options);
-    console.log(response.data);
+    // console.log(response.data);
     return response.data;
   } catch (error) {
     console.error(error);
@@ -85,7 +85,7 @@ export const fetchMovieTrailers = async movieId => {
   options.url = `${baseURL}/3/movie/${movieId}/videos`;
   try {
     const response = await axios.request(options);
-    console.log(response.data);
+    // console.log(response.data);
     return response.data;
   } catch (error) {
     console.error(error);
