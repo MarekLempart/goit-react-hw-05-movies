@@ -2,20 +2,20 @@
 
 import { Suspense } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
-import { LoadingIndicator } from './LoadingDots';
-import styles from './SharedLayout.module.css';
+import { LoadingIndicator } from '../LoadingDots/LoadingDots';
+import css from './SharedLayout.module.css';
 
 const SharedLayout = () => {
   return (
     <>
-      <header className={styles.header}>
+      <header className={css.header}>
         {' '}
         {/* Dodajemy klasę CSS */}
         <nav>
-          <NavLink to="/" className={styles.navLink}>
+          <NavLink to="/" className={css.navLink}>
             Home
           </NavLink>
-          <NavLink to="/movies" className={styles.navLink}>
+          <NavLink to="/movies" className={css.navLink}>
             Movies
           </NavLink>
         </nav>

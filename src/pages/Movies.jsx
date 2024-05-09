@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
-import movieListStyles from '../components/MovieList/MovieList.module.css';
+import css from '../components/MovieList/MovieList.module.css';
 import SearchMovies from '../components/SearchMovies/SearchMovies';
 import { fetchMovieByName } from '../services/Api';
 
@@ -42,13 +42,13 @@ const Movies = () => {
 
   return (
     <main>
-      <div className={movieListStyles.sectionTitle}>Movies Page</div>
+      <div className={css.sectionTitle}>Movies Page</div>
       <SearchMovies onSubmit={handleSubmit} />
-      <ul className={movieListStyles.list}>
+      <ul className={css.list}>
         {movies.map(movie => (
-          <li className={movieListStyles.listItem} key={movie.id}>
+          <li className={css.listItem} key={movie.id}>
             <Link
-              className={movieListStyles.link}
+              className={css.link}
               to={`/movies/${movie.id}`}
               state={{ from: location }}
             >

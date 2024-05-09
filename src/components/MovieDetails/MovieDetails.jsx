@@ -6,7 +6,7 @@ import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 import { fetchMovieById } from '../../services/Api';
 import MovieCard from '../MovieCard/MovieCard';
 import loadingIndicator from '../SharedLayout/SharedLayout.module.css';
-import styles from './MovieDetails.module.css';
+import css from './MovieDetails.module.css';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
@@ -28,9 +28,9 @@ const MovieDetails = () => {
 
   return (
     <main>
-      <div className={styles.container}>
+      <div className={css.container}>
         <Link to={location?.state?.from ?? '/'}>
-          <button className={styles.button}>
+          <button className={css.button}>
             <BsArrowLeftShort
               style={{ width: '25px', height: '25px', display: 'inline-block' }}
             />

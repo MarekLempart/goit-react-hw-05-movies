@@ -2,19 +2,16 @@
 
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import styles from './MovieList.module.css';
+import css from './MovieList.module.css';
 
 const MovieList = ({ trendingMovies }) => {
   return (
-    <section className={styles.styledSection}>
-      <h2 className={styles.sectionTitle}>Trending today</h2>
-      <ul className={styles.list}>
+    <section className={css.styledSection}>
+      <h2 className={css.sectionTitle}>Trending today</h2>
+      <ul className={css.list}>
         {trendingMovies.map(trendingMovie => (
-          <li key={trendingMovie.id} className={styles.listItem}>
-            <Link
-              to={`/movies/${trendingMovie.id}`}
-              className={styles.styledLink}
-            >
+          <li key={trendingMovie.id} className={css.listItem}>
+            <Link to={`/movies/${trendingMovie.id}`} className={css.styledLink}>
               {trendingMovie.title}
             </Link>
           </li>

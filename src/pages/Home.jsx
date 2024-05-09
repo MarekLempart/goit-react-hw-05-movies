@@ -1,7 +1,7 @@
 // Home.jsx
 
+import { LoadingIndicator } from 'components/LoadingDots/LoadingDots';
 import MovieList from 'components/MovieList/MovieList';
-import { LoadingIndicator } from 'components/SharedLayout/LoadingDots';
 import { useEffect, useState } from 'react';
 import { fetchTrendMovies } from '../services/Api';
 

@@ -2,7 +2,7 @@
 
 import PropTypes from 'prop-types';
 import { toast } from 'react-hot-toast';
-import styles from './SearchMovies.module.css';
+import css from './SearchMovies.module.css';
 
 const SearchMovies = ({ onSubmit }) => {
   const handleSubmit = e => {
@@ -20,14 +20,14 @@ const SearchMovies = ({ onSubmit }) => {
   };
 
   return (
-    <form className={styles.form} onSubmit={handleSubmit}>
+    <form className={css.form} onSubmit={handleSubmit}>
       <input
-        className={styles.input}
+        className={css.input}
         name="query"
         type="text"
         placeholder="Search movies"
       />
-      <button className={styles.button} type="submit">
+      <button className={css.button} type="submit">
         Search
       </button>
     </form>
