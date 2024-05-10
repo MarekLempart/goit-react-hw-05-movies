@@ -11,7 +11,7 @@ const MovieList = ({ trendingMovies }) => {
       <ul className={css.list}>
         {trendingMovies.map(trendingMovie => (
           <li key={trendingMovie.id} className={css.listItem}>
-            <Link to={`/movies/${trendingMovie.id}`} className={css.styledLink}>
+            <Link to={`/movies/${trendingMovie.id}`} className={css.linkItem}>
               {trendingMovie.title}
             </Link>
           </li>

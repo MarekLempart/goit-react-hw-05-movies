@@ -48,7 +48,7 @@ const Movies = () => {
         {movies.map(movie => (
           <li className={css.listItem} key={movie.id}>
             <Link
-              className={css.link}
+              className={css.linkItem}
               to={`/movies/${movie.id}`}
               state={{ from: location }}
             >
